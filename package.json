@@ -1,0 +1,12 @@
+{
+    "name": "com.holadivinus.marrowbuildhook",
+    "version": "0.1.0",
+    "displayName": "Marrow Build Hook",
+    "description": "A meta package for the MarrowSDK, allowing other packages to modify content OnBuild. Also comes with some utility components for custom "on-build" modifications.",
+    "unity": "2021.3",
+  "author": {
+    "name": "holadivinus",
+    "email": "holadivinus@gmail.com",
+    "url": "https://github.com/holadivinus/MarrowBuildHook"
+  }
+}
