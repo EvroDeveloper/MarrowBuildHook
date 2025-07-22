@@ -79,8 +79,8 @@ namespace MarrowBuildHook
                     try
                     {
                         ProcessGameObject(new GameObject[] { prefab }); // yayyyyy, array allocation
+                        PrefabUtility.SaveAsPrefabAsset(prefab, entry.AssetPath);
                     } catch(Exception) { }
-                    PrefabUtility.SaveAsPrefabAsset(prefab, entry.AssetPath);
                     PrefabUtility.UnloadPrefabContents(prefab);
                 }
             }
