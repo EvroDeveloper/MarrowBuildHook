@@ -74,6 +74,7 @@ namespace MarrowBuildHook
                     modifiedPrefabs.Add(entry.AssetPath, File.ReadAllText(entry.AssetPath));
 
                     var prefab = PrefabUtility.LoadPrefabContents(entry.AssetPath);
+                    if (prefab.name == "VarEnsurer") continue;
                     try
                     {
                         ProcessGameObject(new GameObject[] { prefab }); // yayyyyy, array allocation
