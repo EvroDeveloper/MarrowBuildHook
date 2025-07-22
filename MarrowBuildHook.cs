@@ -71,14 +71,15 @@ namespace MarrowBuildHook
             {
                 if (entry.MainAssetType == typeof(GameObject))
                 {
+                    if (entry.AssetPath.Contains(".obj") || entry.AssetPath.Contains(".fbx")) continue;
                     modifiedPrefabs.Add(entry.AssetPath, File.ReadAllText(entry.AssetPath));
 
                     var prefab = PrefabUtility.LoadPrefabContents(entry.AssetPath);
                     try
                     {
                         ProcessGameObject(new GameObject[] { prefab }); // yayyyyy, array allocation
+                        PrefabUtility.SaveAsPrefabAsset(prefab, entry.AssetPath);
                     } catch(Exception) { }
-                    PrefabUtility.SaveAsPrefabAsset(prefab, entry.AssetPath);
                     PrefabUtility.UnloadPrefabContents(prefab);
                 }
             }
