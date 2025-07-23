@@ -71,7 +71,7 @@ namespace MarrowBuildHook
             {
                 if (entry.MainAssetType == typeof(GameObject))
                 {
-                    if (entry.AssetPath.Contains(".obj") || entry.AssetPath.Contains(".fbx")) continue;
+                    if (entry.AssetPath.Contains(".obj") || entry.AssetPath.Contains(".fbx") || entry.AssetPath.Contains(".blend")) continue;
                     modifiedPrefabs.Add(entry.AssetPath, File.ReadAllText(entry.AssetPath));
 
                     var prefab = PrefabUtility.LoadPrefabContents(entry.AssetPath);
@@ -81,8 +81,8 @@ namespace MarrowBuildHook
                         PrefabUtility.SaveAsPrefabAsset(prefab, entry.AssetPath);
                     } catch(Exception ex) 
                     {
-                        Debug.LogError("Failed to Process prefab: " + entry.AssetPath);
-                        Debug.LogException(ex);
+                        Debug.LogWarning("[MBH]: Failed to Process prefab: " + entry.AssetPath);
+                        Debug.LogWarning(ex);
                     }
                     PrefabUtility.UnloadPrefabContents(prefab);
                 }
