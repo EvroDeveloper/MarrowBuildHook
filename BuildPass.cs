@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarrowBuildHook
 {
-    interface IBuildPass
+    public interface IBuildPass
     {
         public void OnBuild() { }
         public int PassPriority { get; }
